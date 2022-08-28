@@ -1,11 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { registerMicroApps, start } from "qiankun";
+
+registerMicroApps([
+  {
+    name: "reactApp",
+    entry: "//localhost:3000",
+    container: "#container",
+    activeRule: "/app-react",
+  },
+  {
+    name: "vue2App",
+    entry: "//localhost:3001",
+    container: "#container",
+    activeRule: "/app-vue2",
+  },
+  {
+    name: "vue3App",
+    entry: "//localhost:3002",
+    container: "#container",
+    activeRule: "/app-vue3",
+  },
+]);
+// 启动 qiankun
+start();
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
